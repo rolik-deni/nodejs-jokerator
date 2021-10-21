@@ -1,0 +1,63 @@
+[
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "I've got a really good UDP joke to tell you but I don’t know if you'll get it."
+    },
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "Judge: \"I sentence you to the maximum punishment...\"\nMe (thinking): \"Please be death, please be death...\"\nJudge: \"Learn Java!\"\nMe: \"Damn.\""
+    },
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says \"Can't you see the warning on the cigarette pack? Smoking is hazardous to your health!\" to which the man replies, \"I am a programmer.  We don't worry about warnings; we only worry about errors.\""
+    },
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "Debugging is like being the detective in a crime movie where you're also the murderer at the same time."
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "Why is Linux safe?",
+        "delivery": "Hackers peak through Windows only."
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "Why did the functional programmer get thrown out of school?",
+        "delivery": "Because he refused to take classes."
+    },
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "\"Knock, knock.\"\n\"Who's there?\"\n[very long pause]\n\"Java.\""
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "Why do programmers confuse Halloween and Christmas?",
+        "delivery": "Because Oct 31 = Dec 25"
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "How did you make your friend rage?",
+        "delivery": "I implemented a greek question mark in his JavaScript code."
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "why do python programmers wear glasses?",
+        "delivery": "Because they can't C."
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "Why do programmers prefer using the dark mode?",
+        "delivery": "Because light attracts bugs."
+    }
+]
