@@ -1,16 +1,7 @@
-import CategoryType from '../enums/category-type.enum'
-import JokeType from '../enums/joke-type.enum'
+import ApiError from './api-error.interface'
+import Joke from './joke.interface'
 
 /**
  * API response interface
  */
-export default interface JokeResponse {
-    readonly error: boolean
-    readonly category: CategoryType
-    readonly code: number
-    readonly message: string
-    readonly type: JokeType
-    readonly joke: string
-    readonly setup: string
-    readonly delivery: string
-}
+export default interface JokeResponse extends Joke, ApiError {}
