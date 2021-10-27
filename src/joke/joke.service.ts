@@ -11,27 +11,17 @@ import Joke from './interfaces/joke.interface'
  * Parses jokes from https://v2.jokeapi.dev/
  */
 export default class JokeService {
-    categories: JokeCategory[] | JokeCategory.Any
-    request: AxiosRequestConfig
-
-    /**
-     * Constructs the JokeService class
-     * @param categories - list of categories to be searched for
-     * @constructor
-     */
-    constructor(
-        categories: JokeCategory[] | JokeCategory.Any = JokeCategory.Any,
-    ) {
-        this.categories = categories
-        this.generateRequest()
-    }
-
     /**
      * Сreate an api request
+     * @static
+     * @param categories - list of categories to be searched for
+     * @returns void
      */
-    generateRequest(): void {
-        this.request = {
-            url: [this.categories].join(','),
+    protected static generateRequest(
+        categories: JokeCategory[] | JokeCategory.Any,
+    ): AxiosRequestConfig {
+        return {
+            url: [categories].join(','),
             method: 'get',
             baseURL: 'https://v2.jokeapi.dev/joke/',
         }
@@ -39,10 +29,15 @@ export default class JokeService {
 
     /**
      * Execute a request to the api. Await version
+     * @static
      * @returns Promise<Joke>
      */
-    async parseAwait(): Promise<Joke> {
-        const response = await axios.request<JokeResponse>(this.request)
+    static async parseAwait(
+        categories: JokeCategory[] | JokeCategory.Any,
+    ): Promise<Joke> {
+        const response = await axios.request<JokeResponse>(
+            this.generateRequest(categories),
+        )
         return this.parse(response.data)
     }
 
@@ -50,20 +45,24 @@ export default class JokeService {
      * Execute a request to the api. Then version
      * @returns Promise<Joke>
      */
-    parseThen(): Promise<Joke> {
+    static parseThen(
+        categories: JokeCategory[] | JokeCategory.Any,
+    ): Promise<Joke> {
         return axios
-            .request<JokeResponse>(this.request)
+            .request<JokeResponse>(this.generateRequest(categories))
             .then((response) => this.parse(response.data))
     }
 
     /**
      * Parse the api response
+     * @protected
+     * @static
      * @param data - data returned by the api
      * @returns Joke
      * @throws ResponseError
      * @throws ParseError
      */
-    parse(data: JokeResponse): Joke {
+    protected static parse(data: JokeResponse): Joke {
         if (data.type === JokeType.Single) {
             return { category: data.category, type: data.type, joke: data.joke }
         } else if (data.type === JokeType.TwoPart) {

@@ -27,10 +27,7 @@ program
     .showSuggestionAfterError()
     .parse()
 
-const jokeApi = new JokeService(program.getOptionValue('categories'))
-
-jokeApi
-    .parseAwait()
+JokeService.parseAwait(program.getOptionValue('categories'))
     .then((joke) => printJoke(joke))
     .catch((e) => {
         printErrorMessage(e)
@@ -38,9 +35,7 @@ jokeApi
     })
 
 // It also works
-
-// jokeApi
-//     .parseThen()
+// JokeService.parseThen(program.getOptionValue('categories'))
 //     .then((joke) => printJoke(joke))
 //     .catch((e) => {
 //         printErrorMessage(e)

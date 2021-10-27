@@ -23,7 +23,7 @@ async function testSync(): Promise<void> {
     console.time('sync parse')
     try {
         for (let i = 0; i < N; i++) {
-            await new JokeService(JokeCategory.Any).parseAwait()
+            await JokeService.parseAwait(JokeCategory.Any)
         }
     } catch (e) {
         onError(e)
@@ -40,7 +40,7 @@ async function testAsync(): Promise<void> {
     const jokes: Promise<Joke>[] = []
 
     for (let i = 0; i < N; i++) {
-        jokes.push(new JokeService(JokeCategory.Any).parseAwait())
+        jokes.push(JokeService.parseAwait(JokeCategory.Any))
     }
 
     console.time('async parse')
