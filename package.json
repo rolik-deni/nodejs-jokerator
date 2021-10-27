@@ -6,6 +6,7 @@
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "tsc --build",
+        "format": "prettier --write \"src/**/*.ts\"",
         "start": "node ./dist/jokerator.js",
         "start:dev": "ts-node ./src/jokerator.ts",
         "test:benchmark": "node ./dist/benchmark.test.js",
